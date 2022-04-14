@@ -23,23 +23,22 @@ def index(request):
             if existing_city_count == 0 :
                 r = requests.get(url.format(new_city)).json()
                 if r['cod'] == 200:
+                    message = "City Added"
+                    message_class = 'is-success'
                     form.save()
                 else : 
                     err_msg = "City does not exist"
             else :
-                err_msg = "City already exists!"
-
-
+                err_msg = "City already exists!" 
     if err_msg : 
         message = err_msg
         message_class = 'is-danger'
-    else : 
-        message = "City Added"
-        message_class = 'is-success'
-    form = CityForm()
-    weather_data = []
-    for city in cities : 
 
+    form = CityForm()
+
+    weather_data = []
+
+    for city in cities : 
         r = requests.get(url.format(city)).json()
         city_weather = {
             'city': city.name,
@@ -48,6 +47,7 @@ def index(request):
             'icon':  r['weather'][0]['icon'] 
         }
         weather_data.append(city_weather)
+
     context = {
         'weather_data': weather_data, 
         'form': form, 
