@@ -32,7 +32,7 @@ def verify(request):
             "ip_address": ip
         }
     }
-    print("data : " + data)
+    print("data : " + str(data))
     req = requests.post(url, data=data)
     if req.status_code == 200 :
         return req.result
@@ -40,7 +40,7 @@ def verify(request):
 
 
 def index(request):
-    print(request.META)
+    print("META : " + str(request.META))
     exists = verify(request)
     print("exists : " + exists)
     if exists : 
