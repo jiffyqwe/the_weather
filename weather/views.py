@@ -38,7 +38,7 @@ def verify(request):
     print(req)
     print(req['code'])
     print(req['result'])
-    if req['code'] == 200 :
+    if req['code'] == '200' :
         return req['result']
     return False
 
