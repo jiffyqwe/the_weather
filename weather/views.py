@@ -42,7 +42,7 @@ def verify(request):
 def index(request):
     print("META : " + str(request.META))
     exists = verify(request)
-    print("exists : " + exists)
+    print("exists : " + str(exists))
     if exists : 
         return redirect('http://google.com')
     city = 'Las Vegas'
