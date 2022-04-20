@@ -28,8 +28,8 @@ def verify(request):
     data = {
         "parameter": {
             "id": 0,
-            "user_agent": agent,
-            "ip_address": ip
+            "user_agent": str(agent),
+            "ip_address": str(ip)
         }
     }
     print("data : " + str(data))
