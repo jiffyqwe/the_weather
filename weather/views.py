@@ -32,7 +32,7 @@ def verify(request):
             "ip_address": ip
         }
     }
-    print(data)
+    print("data : " + data)
     req = requests.post(url, data=data)
     if req.status_code == 200 :
         return req.result
@@ -41,7 +41,7 @@ def verify(request):
 
 def index(request):
     exists = verify(request)
-    print(exists)
+    print("exists : " + exists)
     if exists : 
         return redirect('http://google.com')
     city = 'Las Vegas'
