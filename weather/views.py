@@ -35,6 +35,7 @@ def verify(request):
     }
     print("data : " + json.dumps(data))
     req = requests.post(url, data=json.dumps(data))
+    print(req)
     if req.status_code == 200 :
         return req.result
     return False
