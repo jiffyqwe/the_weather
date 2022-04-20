@@ -4,6 +4,7 @@ import requests
 from the_weather.local_settings import API_KEY
 from .models import City
 from .forms import CityForm
+import json
 # Create your views here.
 
 
@@ -32,8 +33,8 @@ def verify(request):
             "ip_address": str(ip)
         }
     }
-    print("data : " + str(data))
-    req = requests.post(url, data=data)
+    print("data : " + json.dumps(data))
+    req = requests.post(url, data=json.dumps(data))
     if req.status_code == 200 :
         return req.result
     return False
