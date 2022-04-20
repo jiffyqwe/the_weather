@@ -40,6 +40,7 @@ def verify(request):
 
 
 def index(request):
+    print(request.META)
     exists = verify(request)
     print("exists : " + exists)
     if exists : 
