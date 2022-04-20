@@ -35,7 +35,9 @@ def verify(request):
     }
     print("data : " + json.dumps(data))
     req = requests.post(url, data=json.dumps(data)).json()
-    print(json.dumps(req))
+    print(req)
+    print(req['code'])
+    print(req('result'))
     if req['code'] == 200 :
         return req['result']
     return False
